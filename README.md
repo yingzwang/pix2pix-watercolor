@@ -4,6 +4,16 @@ I trained neural networks to generate watercolor paintings from pencil sketches.
 
 <img src="docs/output_paintings.png" width="800px"/>
 
+# Observe how GAN learns to paint
+
+GAN initially generates grayish and noisy pixels, and gradually comes up with more colors and details. See an example below:
+
+<img src="docs/training.gif"/>
+
+It is interesting that the learning process of GAN resembles the actual watercolor painting process: start with flat and smooth colors over large areas, and then add more shades and details.
+
+GAN is difficult to train because the loss curves often look weird. For tuning hyper parameters it is helpful (and fun) to watch the generated paintings during training. It seems that if the learning process resembles more the natural painting process, then it results in a better model that can generate better looking paintings in testing phase.
+
 # pix2pix 
 
 This image-to-image transfer idea (also known as "pix2pix") is proposed by: 
@@ -21,16 +31,6 @@ The implementation is based on the Tensorflow port by [Christopher Hesse](https:
 - GAN Discriminator: Multiply discriminator loss by 0.5, as suggested in the original paper. The discriminator tends to learn too fast. Slowing it down indeed improves my results.
 - GAN Generator: Add one more layer in encoder and one more layer in decoder, to work with larger images. My training set is very limited, and learning from higher resolution image helps.
 - Some clean-up to make the code more “light weight” for my application.
-
-# Observe how GAN learns to paint
-
-GAN initially generates grayish and noisy pixels, and gradually comes up with more colors and details. See an example below:
-
-<img src="docs/training.gif"/>
-
-It is interesting that the learning process of GAN resembles the actual watercolor painting process: start with flat and smooth colors over large areas, and then add more shades and details.
-
-GAN is difficult to train because the loss curves often look weird. For tuning hyper parameters it is helpful (and fun) to watch the generated paintings during training. It seems that if the learning process resembles more the natural painting process, then it results in a better model that can generate better looking paintings in testing phase.
 
 ### Prerequisites
 - Tensorflow 1.9.0
