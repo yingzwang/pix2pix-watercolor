@@ -19,14 +19,14 @@ It designs a conditional variant of [generative adversarial networks](https://ar
 
 The implementation is based on the Tensorflow port by [Christopher Hesse](https://github.com/christopherhesse). I made the following changes,
 - GAN Discriminator: Multiply discriminator loss by 0.5, as suggested in the original paper. The discriminator tends to learn too fast. Slowing it down indeed improves my results.
-- GAN Generator: Add one more layer in encoder and one more layer in decoder, to work with larger images. My training set is very limited, and learning from higher resolution images helps.
+- GAN Generator: Add one more layer in encoder and one more layer in decoder, to work with larger images. My training set is very limited, and learning from higher resolution image helps.
 - Some clean-up to make the code more “light weight” for my application.
 
 # Observe how GAN learns to paint
 
 GAN initially generates grayish and noisy pixels, and gradually comes up with more colors and details. See an example below:
 
-<img src="docs/output_paintings.png"/>
+<img src="docs/training.gif"/>
 
 It is interesting that the learning process of GAN resembles the actual watercolor painting process: start with flat and smooth colors over large areas, and then add more shades and details.
 
